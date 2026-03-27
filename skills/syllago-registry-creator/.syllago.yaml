@@ -1,0 +1,7 @@
+name: syllago-registry-creator
+description: Create and publish your own syllago content registry
+version: "1.0"
+tags:
+  - official
+  - registry
+  - syllago

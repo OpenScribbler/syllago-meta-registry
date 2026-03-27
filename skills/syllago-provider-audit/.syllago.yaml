@@ -1,0 +1,7 @@
+name: syllago-provider-audit
+description: Structured research workflow for auditing AI coding tool providers
+version: "1.0"
+tags:
+  - official
+  - audit
+  - syllago

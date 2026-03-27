@@ -1,0 +1,13 @@
+kind: loadout
+version: 1
+provider: windsurf
+name: syllago-starter
+description: >
+  Official syllago meta-tools: reference guide, quickstart,
+  import workflow, and registry creator.
+
+skills:
+  - syllago-guide
+  - syllago-quickstart
+  - syllago-import
+  - syllago-registry-creator

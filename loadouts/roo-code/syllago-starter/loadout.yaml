@@ -1,0 +1,15 @@
+kind: loadout
+version: 1
+provider: roo-code
+name: syllago-starter
+description: >
+  Official syllago meta-tools: reference guide, quickstart,
+  import workflow, registry creator, and content authoring agent.
+
+skills:
+  - syllago-guide
+  - syllago-quickstart
+  - syllago-import
+  - syllago-registry-creator
+agents:
+  - syllago-author

@@ -56,13 +56,11 @@ The `registry.yaml` at the root describes this registry:
 ```yaml
 name: syllago-meta-registry
 description: A short description of this registry.
-version: 0.1.0
+version: 1.0.0
 ```
 
 Bump `version` when you make significant changes.
 
-## Example Content
+## Adding Content
 
-This registry includes example content in `skills/hello-world/` and
-`rules/claude-code/example-rule/`. These are tagged `example` in their
-`.syllago.yaml` and can be safely deleted once you add real content.
+To contribute, create a new directory under the appropriate content type folder following the structure above. Each piece of content needs at minimum its required file (e.g., `SKILL.md` for skills, `rule.md` for rules) and optionally a `.syllago.yaml` for metadata.
