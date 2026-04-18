@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "attested_at": "2026-04-18T03:43:49Z",
+  "publisher_workflow_ref": ".github/workflows/moat.yml@refs/heads/master",
+  "private_repo": false,
+  "items": [
+    {
+      "name": "syllago-guide",
+      "content_hash": "sha256:f997b299344032fb6f12c80b86dffad33a1ad2ec0c23bd2476ce3d4c8781a6f2",
+      "source_ref": "aefa1da16efbef2300f596e34bd082e6d8e332c7",
+      "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
+      "rekor_log_index": 1335627352
+    },
+    {
+      "name": "syllago-import",
+      "content_hash": "sha256:815fc372a28b6ec300031d6e4cd4a3678df2f7c52312314abac4477344c241b1",
+      "source_ref": "aefa1da16efbef2300f596e34bd082e6d8e332c7",
+      "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
+      "rekor_log_index": 1335627655
+    },
+    {
+      "name": "syllago-provider-audit",
+      "content_hash": "sha256:1e1917a02a56ed2210346341c68449b8927e6e588041c4e72985d7379b14a093",
+      "source_ref": "aefa1da16efbef2300f596e34bd082e6d8e332c7",
+      "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
+      "rekor_log_index": 1335627920
+    },
+    {
+      "name": "syllago-quickstart",
+      "content_hash": "sha256:08940fc3539707bcbe43b842ba9c75142ff3ae10204f5cd38a9321d5c0d4aca9",
+      "source_ref": "aefa1da16efbef2300f596e34bd082e6d8e332c7",
+      "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
+      "rekor_log_index": 1335628318
+    },
+    {
+      "name": "syllago-registry-creator",
+      "content_hash": "sha256:554f79b82945607ea867a272958916ad68a5e2d97663ef5230dac82160ee2f46",
+      "source_ref": "aefa1da16efbef2300f596e34bd082e6d8e332c7",
+      "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
+      "rekor_log_index": 1335628557
+    }
+  ],
+  "revocations": []
+}
