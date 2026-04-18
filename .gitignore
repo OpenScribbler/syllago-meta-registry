@@ -11,3 +11,4 @@ Thumbs.db
 # Misc
 *.bak
 *.tmp
+.claude/projects/
