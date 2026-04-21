@@ -3,7 +3,7 @@
   "manifest_uri": "https://raw.githubusercontent.com/OpenScribbler/syllago-meta-registry/moat-registry/registry.json",
   "name": "syllago-meta-registry",
   "operator": "OpenScribbler",
-  "updated_at": "2026-04-20T02:38:40Z",
+  "updated_at": "2026-04-21T02:33:50Z",
   "self_published": true,
   "registry_signing_profile": {
     "issuer": "https://token.actions.githubusercontent.com",
@@ -16,9 +16,9 @@
       "type": "skill",
       "content_hash": "sha256:f997b299344032fb6f12c80b86dffad33a1ad2ec0c23bd2476ce3d4c8781a6f2",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-20T02:38:29Z",
+      "attested_at": "2026-04-21T02:33:46Z",
       "private_repo": false,
-      "rekor_log_index": 1341540885,
+      "rekor_log_index": 1344972145,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat.yml@refs/heads/master"
@@ -30,9 +30,9 @@
       "type": "skill",
       "content_hash": "sha256:815fc372a28b6ec300031d6e4cd4a3678df2f7c52312314abac4477344c241b1",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-20T02:38:32Z",
+      "attested_at": "2026-04-21T02:33:47Z",
       "private_repo": false,
-      "rekor_log_index": 1341541007,
+      "rekor_log_index": 1344972278,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat.yml@refs/heads/master"
@@ -44,9 +44,9 @@
       "type": "skill",
       "content_hash": "sha256:1e1917a02a56ed2210346341c68449b8927e6e588041c4e72985d7379b14a093",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-20T02:38:33Z",
+      "attested_at": "2026-04-21T02:33:48Z",
       "private_repo": false,
-      "rekor_log_index": 1341541173,
+      "rekor_log_index": 1344972392,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat.yml@refs/heads/master"
@@ -58,9 +58,9 @@
       "type": "skill",
       "content_hash": "sha256:08940fc3539707bcbe43b842ba9c75142ff3ae10204f5cd38a9321d5c0d4aca9",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-20T02:38:35Z",
+      "attested_at": "2026-04-21T02:33:48Z",
       "private_repo": false,
-      "rekor_log_index": 1341541283,
+      "rekor_log_index": 1344972515,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat.yml@refs/heads/master"
@@ -72,9 +72,9 @@
       "type": "skill",
       "content_hash": "sha256:554f79b82945607ea867a272958916ad68a5e2d97663ef5230dac82160ee2f46",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-20T02:38:38Z",
+      "attested_at": "2026-04-21T02:33:49Z",
       "private_repo": false,
-      "rekor_log_index": 1341541385,
+      "rekor_log_index": 1344972605,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat.yml@refs/heads/master"
@@ -86,9 +86,9 @@
       "type": "agent",
       "content_hash": "sha256:e51deec45d58b89b6b8be3b5f5a29276940a2de65bf387228c3f0c7734ac6fb6",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-20T02:38:40Z",
+      "attested_at": "2026-04-21T02:33:50Z",
       "private_repo": false,
-      "rekor_log_index": 1341541614,
+      "rekor_log_index": 1344972667,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat.yml@refs/heads/master"
