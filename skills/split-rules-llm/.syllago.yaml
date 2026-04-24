@@ -1,0 +1,9 @@
+name: split-rules-llm
+description: LLM-driven splitter for monolithic rule files; emits structured SplitCandidate JSON for syllago's Add wizard
+version: "1.0"
+tags:
+  - official
+  - syllago
+  - rules
+  - splitter
+  - llm

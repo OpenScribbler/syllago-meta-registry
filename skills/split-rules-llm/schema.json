@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/OpenScribbler/syllago-meta-registry/skills/split-rules-llm/schema.json",
+  "title": "split-rules-llm output",
+  "description": "Structured output of the split-rules-llm skill. Consumed by syllago's Add wizard Review step and the CLI's --split=llm code path. Shape is fixed by syllago rules-splitter design doc D9.",
+  "type": "object",
+  "required": ["candidates"],
+  "additionalProperties": false,
+  "properties": {
+    "candidates": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/candidate" }
+    }
+  },
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "required": ["name", "description", "body", "original_range"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Slug suitable for a library directory name. Lowercase letters, digits, hyphens only."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "description": "One-line human-readable title, derived from the original heading."
+        },
+        "body": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Candidate body bytes. Include the heading at the top. LF line endings."
+        },
+        "original_range": {
+          "type": "object",
+          "required": ["start_line", "end_line"],
+          "additionalProperties": false,
+          "properties": {
+            "start_line": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "1-indexed line number where this slice begins (inclusive)."
+            },
+            "end_line": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "1-indexed line number where this slice ends (exclusive — one past the last line)."
+            }
+          }
+        }
+      }
+    }
+  }
+}
