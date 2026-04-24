@@ -12,6 +12,9 @@ name: MOAT Registry Action
 # Do NOT add 'moat-registry' to the push branches list.
 # ─────────────────────────────────────────────────────────────────────────────
 on:
+  workflow_run:
+    workflows: ["MOAT Publisher Action"]
+    types: [completed]
   schedule:
     - cron: '0 0 * * *'   # Daily at midnight UTC — adjust interval as needed
   push:
@@ -26,6 +29,7 @@ permissions:
 jobs:
   update-registry:
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
 
     steps:
       - name: Checkout registry repository
@@ -358,7 +362,7 @@ jobs:
               owner_repo = _github_owner_repo(source_uri)
               if not owner_repo:
                   return None
-              ref = publisher_workflow_ref or ".github/workflows/moat.yml@refs/heads/main"
+              ref = publisher_workflow_ref or ".github/workflows/moat-publisher.yml@refs/heads/main"
               return f"https://github.com/{owner_repo}/{ref}"
 
 
@@ -604,7 +608,7 @@ jobs:
 
                           attestation = get_moat_attestation(work_dir)
                           attested_hashes = {}
-                          publisher_workflow_ref = ".github/workflows/moat.yml@refs/heads/main"
+                          publisher_workflow_ref = ".github/workflows/moat-publisher.yml@refs/heads/main"
                           publisher_revocations = []
                           if attestation:
                               print("  Found moat-attestation.json")
