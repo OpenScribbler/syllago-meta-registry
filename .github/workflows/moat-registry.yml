@@ -5,9 +5,13 @@ name: MOAT Registry Action
 #
 # The action pushes registry.json to the `moat-registry` branch, NOT to the
 # branch that triggered it. An unscoped `push` trigger on main is therefore
-# safe, but the `paths: ['registry.yml']` trigger is intentional: a config
+# safe, but the `paths: ['.moat/registry.yml']` trigger is intentional: a config
 # change (e.g., adding a revocation) immediately kicks off a run — this is
 # the normative emergency revocation path.
+#
+# The `workflow_run` trigger chains this action after moat-publisher.yml so
+# that adding both workflow files is sufficient to bootstrap a compliant
+# registry — no manual dispatch required.
 #
 # Do NOT add 'moat-registry' to the push branches list.
 # ─────────────────────────────────────────────────────────────────────────────
@@ -19,8 +23,14 @@ on:
     - cron: '0 0 * * *'   # Daily at midnight UTC — adjust interval as needed
   push:
     paths:
-      - 'registry.yml'     # Immediate run on config change (emergency revocation path)
+      - '.moat/registry.yml'     # Immediate run on config change (emergency revocation path)
   workflow_dispatch:       # Manual trigger for testing and on-demand refresh
+    inputs:
+      expires_hours:
+        description: 'Hours until manifest expiry (default: 72)'
+        required: false
+        default: '72'
+        type: number
 
 permissions:
   id-token: write   # Required for Sigstore OIDC keyless signing
@@ -55,12 +65,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_WORKFLOW_REF: ${{ github.workflow_ref }}
           GITHUB_SERVER_URL: ${{ github.server_url }}
+          EXPIRES_HOURS: ${{ github.event.inputs.expires_hours || '72' }}
         run: |
           python3 << 'PYEOF'
           """
-          MOAT Registry Action — reference implementation v0.1.0
+          MOAT Registry Action — reference implementation v0.2.0
 
-          Reads registry.yml, crawls sources, determines trust tiers, signs
+          Reads .moat/registry.yml, crawls sources, determines trust tiers, signs
           per-item canonical payloads and the manifest, writes registry.json
           and registry.json.sigstore.
 
@@ -79,7 +90,7 @@ jobs:
           import unicodedata
           import urllib.request
           import urllib.error
-          from datetime import datetime, timezone
+          from datetime import datetime, timedelta, timezone
           from pathlib import Path
 
           import yaml
@@ -194,9 +205,9 @@ jobs:
           # ─── Config ───────────────────────────────────────────────────────────────────
 
           def load_config():
-              config_path = Path("registry.yml")
+              config_path = Path(".moat/registry.yml")
               if not config_path.exists():
-                  print("error: registry.yml not found", file=sys.stderr)
+                  print("error: .moat/registry.yml not found", file=sys.stderr)
                   sys.exit(1)
               with open(config_path) as f:
                   config = yaml.safe_load(f)
@@ -225,7 +236,7 @@ jobs:
           def is_private_uri(uri):
               """True if the URI is not accessible to unauthenticated requests."""
               try:
-                  req = urllib.request.Request(uri, headers={"User-Agent": "moat-registry-action/0.1.0"})
+                  req = urllib.request.Request(uri, headers={"User-Agent": "moat-registry-action/0.2.0"})
                   urllib.request.urlopen(req, timeout=10)
                   return False
               except urllib.error.HTTPError as e:
@@ -307,7 +318,7 @@ jobs:
 
 
           def discover_items(repo_dir, source_uri):
-              """Discover content items from canonical directories or moat.yml."""
+              """Discover content items from canonical directories or .moat/publisher.yml."""
               root = Path(repo_dir)
               items = []
               type_map = {
@@ -328,8 +339,8 @@ jobs:
                                   "source_uri": source_uri,
                               })
 
-              # moat.yml discovery (items with explicit name/type)
-              moat_yml = root / "moat.yml"
+              # .moat/publisher.yml discovery (items with explicit name/type)
+              moat_yml = root / ".moat/publisher.yml"
               if moat_yml.exists():
                   with open(moat_yml) as f:
                       moat_config = yaml.safe_load(f) or {}
@@ -574,7 +585,7 @@ jobs:
               any_source_succeeded = False
               self_published = False
 
-              # Registry-initiated revocations from registry.yml
+              # Registry-initiated revocations from .moat/registry.yml
               for rev in config.get("revocations") or []:
                   manifest_revocations.append({
                       "content_hash": rev["content_hash"],
@@ -739,13 +750,48 @@ jobs:
                   if filtered:
                       print(f"Filtered {filtered} tombstoned item(s) from content array.")
 
+              # (name, type) uniqueness enforcement (moat-spec.md:
+              # "content[].name + content[].type MUST be unique within a single manifest";
+              # registry-action.md step 7 — fail non-zero on duplicates.)
+              groups = {}
+              for item in manifest_items:
+                  groups.setdefault((item["name"], item["type"]), []).append(item)
+              duplicates = sorted(
+                  ((key, members) for key, members in groups.items() if len(members) > 1),
+                  key=lambda kv: kv[0],
+              )
+              if duplicates:
+                  print(
+                      "\nerror: duplicate (name, type) entries in manifest — cannot publish.",
+                      file=sys.stderr,
+                  )
+                  for (name, item_type), members in duplicates:
+                      print(f"  ({name}, {item_type}):", file=sys.stderr)
+                      for m in members:
+                          rekor_uri = f"{REKOR_URL}/api/v1/log/entries?logIndex={m['rekor_log_index']}"
+                          print(
+                              f"    - {m['source_uri']} — {rekor_uri}",
+                              file=sys.stderr,
+                          )
+                  sys.exit(1)
+
+              # Auto-populated expires (moat-spec.md §Freshness Guarantee and Replay Scope):
+              # registry sets expiry = build_time + 72h by default; operators can tighten
+              # the window via the EXPIRES_HOURS workflow_dispatch input.
+              now = datetime.now(timezone.utc)
+              try:
+                  expires_hours = int(os.environ.get("EXPIRES_HOURS", "72") or "72")
+              except ValueError:
+                  expires_hours = 72
+
               # Assemble manifest
               manifest = {
                   "schema_version": 1,
                   "manifest_uri": registry_cfg["manifest_uri"],
                   "name": registry_cfg["name"],
                   "operator": registry_cfg["operator"],
-                  "updated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                  "updated_at": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                  "expires": (now + timedelta(hours=expires_hours)).strftime("%Y-%m-%dT%H:%M:%SZ"),
                   "self_published": self_published,
                   "registry_signing_profile": build_registry_signing_profile(),
                   "content": manifest_items,
