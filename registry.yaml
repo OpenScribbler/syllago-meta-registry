@@ -3,3 +3,4 @@ description: Official syllago meta-registry — skills, agents, loadouts, and co
 version: 1.0.0
 maintainers: [OpenScribbler]
 visibility: public
+manifest_uri: https://raw.githubusercontent.com/OpenScribbler/syllago-meta-registry/moat-registry/registry.json
