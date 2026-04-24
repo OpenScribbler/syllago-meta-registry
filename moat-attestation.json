@@ -1,57 +1,57 @@
 {
   "schema_version": 1,
-  "attested_at": "2026-04-24T22:31:31Z",
+  "attested_at": "2026-04-24T23:19:46Z",
   "publisher_workflow_ref": ".github/workflows/moat-publisher.yml@refs/heads/master",
   "private_repo": false,
   "items": [
     {
       "name": "split-rules-llm",
       "content_hash": "sha256:411bf92a1dc1eb57b760dbd5f0f107bf0f4bcd74594f5637e464ec55517c137c",
-      "source_ref": "1b6c482cfdcc4ff5a98cde2d8ab8ef1edf0990f8",
+      "source_ref": "bcc4bdb291f129910b397d330021c3034710bc21",
       "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
-      "rekor_log_index": 1375444334
+      "rekor_log_index": 1375738687
     },
     {
       "name": "syllago-guide",
       "content_hash": "sha256:f997b299344032fb6f12c80b86dffad33a1ad2ec0c23bd2476ce3d4c8781a6f2",
-      "source_ref": "1b6c482cfdcc4ff5a98cde2d8ab8ef1edf0990f8",
+      "source_ref": "bcc4bdb291f129910b397d330021c3034710bc21",
       "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
-      "rekor_log_index": 1375444457
+      "rekor_log_index": 1375738799
     },
     {
       "name": "syllago-import",
       "content_hash": "sha256:815fc372a28b6ec300031d6e4cd4a3678df2f7c52312314abac4477344c241b1",
-      "source_ref": "1b6c482cfdcc4ff5a98cde2d8ab8ef1edf0990f8",
+      "source_ref": "bcc4bdb291f129910b397d330021c3034710bc21",
       "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
-      "rekor_log_index": 1375444553
+      "rekor_log_index": 1375738892
     },
     {
       "name": "syllago-provider-audit",
       "content_hash": "sha256:1e1917a02a56ed2210346341c68449b8927e6e588041c4e72985d7379b14a093",
-      "source_ref": "1b6c482cfdcc4ff5a98cde2d8ab8ef1edf0990f8",
+      "source_ref": "bcc4bdb291f129910b397d330021c3034710bc21",
       "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
-      "rekor_log_index": 1375444650
+      "rekor_log_index": 1375739001
     },
     {
       "name": "syllago-quickstart",
       "content_hash": "sha256:08940fc3539707bcbe43b842ba9c75142ff3ae10204f5cd38a9321d5c0d4aca9",
-      "source_ref": "1b6c482cfdcc4ff5a98cde2d8ab8ef1edf0990f8",
+      "source_ref": "bcc4bdb291f129910b397d330021c3034710bc21",
       "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
-      "rekor_log_index": 1375444801
+      "rekor_log_index": 1375739122
     },
     {
       "name": "syllago-registry-creator",
       "content_hash": "sha256:554f79b82945607ea867a272958916ad68a5e2d97663ef5230dac82160ee2f46",
-      "source_ref": "1b6c482cfdcc4ff5a98cde2d8ab8ef1edf0990f8",
+      "source_ref": "bcc4bdb291f129910b397d330021c3034710bc21",
       "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
-      "rekor_log_index": 1375444917
+      "rekor_log_index": 1375739240
     },
     {
       "name": "syllago-author",
       "content_hash": "sha256:e51deec45d58b89b6b8be3b5f5a29276940a2de65bf387228c3f0c7734ac6fb6",
-      "source_ref": "1b6c482cfdcc4ff5a98cde2d8ab8ef1edf0990f8",
+      "source_ref": "bcc4bdb291f129910b397d330021c3034710bc21",
       "rekor_log_id": "c0d23d6ad406973f9559f3ba2d1ca01f84147d8ffc5b8445c224f98b9591801d",
-      "rekor_log_index": 1375445057
+      "rekor_log_index": 1375739323
     }
   ],
   "revocations": []
