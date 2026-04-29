@@ -3,8 +3,8 @@
   "manifest_uri": "https://raw.githubusercontent.com/OpenScribbler/syllago-meta-registry/moat-registry/registry.json",
   "name": "syllago-meta-registry",
   "operator": "OpenScribbler",
-  "updated_at": "2026-04-28T00:43:22Z",
-  "expires": "2026-05-01T00:43:22Z",
+  "updated_at": "2026-04-29T00:44:50Z",
+  "expires": "2026-05-02T00:44:50Z",
   "self_published": true,
   "registry_signing_profile": {
     "issuer": "https://token.actions.githubusercontent.com",
@@ -17,9 +17,9 @@
       "type": "skill",
       "content_hash": "sha256:411bf92a1dc1eb57b760dbd5f0f107bf0f4bcd74594f5637e464ec55517c137c",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-28T00:43:15Z",
+      "attested_at": "2026-04-29T00:44:42Z",
       "private_repo": false,
-      "rekor_log_index": 1395836698,
+      "rekor_log_index": 1398874438,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat-publisher.yml@refs/heads/master"
@@ -31,9 +31,9 @@
       "type": "skill",
       "content_hash": "sha256:f997b299344032fb6f12c80b86dffad33a1ad2ec0c23bd2476ce3d4c8781a6f2",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-28T00:43:16Z",
+      "attested_at": "2026-04-29T00:44:43Z",
       "private_repo": false,
-      "rekor_log_index": 1395836755,
+      "rekor_log_index": 1398874459,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat-publisher.yml@refs/heads/master"
@@ -45,9 +45,9 @@
       "type": "skill",
       "content_hash": "sha256:815fc372a28b6ec300031d6e4cd4a3678df2f7c52312314abac4477344c241b1",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-28T00:43:17Z",
+      "attested_at": "2026-04-29T00:44:44Z",
       "private_repo": false,
-      "rekor_log_index": 1395836800,
+      "rekor_log_index": 1398874482,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat-publisher.yml@refs/heads/master"
@@ -59,9 +59,9 @@
       "type": "skill",
       "content_hash": "sha256:1e1917a02a56ed2210346341c68449b8927e6e588041c4e72985d7379b14a093",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-28T00:43:18Z",
+      "attested_at": "2026-04-29T00:44:45Z",
       "private_repo": false,
-      "rekor_log_index": 1395836832,
+      "rekor_log_index": 1398874503,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat-publisher.yml@refs/heads/master"
@@ -73,9 +73,9 @@
       "type": "skill",
       "content_hash": "sha256:08940fc3539707bcbe43b842ba9c75142ff3ae10204f5cd38a9321d5c0d4aca9",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-28T00:43:19Z",
+      "attested_at": "2026-04-29T00:44:46Z",
       "private_repo": false,
-      "rekor_log_index": 1395836876,
+      "rekor_log_index": 1398874524,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat-publisher.yml@refs/heads/master"
@@ -87,9 +87,9 @@
       "type": "skill",
       "content_hash": "sha256:554f79b82945607ea867a272958916ad68a5e2d97663ef5230dac82160ee2f46",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-28T00:43:20Z",
+      "attested_at": "2026-04-29T00:44:48Z",
       "private_repo": false,
-      "rekor_log_index": 1395836946,
+      "rekor_log_index": 1398874545,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat-publisher.yml@refs/heads/master"
@@ -101,9 +101,9 @@
       "type": "agent",
       "content_hash": "sha256:e51deec45d58b89b6b8be3b5f5a29276940a2de65bf387228c3f0c7734ac6fb6",
       "source_uri": "https://github.com/OpenScribbler/syllago-meta-registry",
-      "attested_at": "2026-04-28T00:43:21Z",
+      "attested_at": "2026-04-29T00:44:49Z",
       "private_repo": false,
-      "rekor_log_index": 1395837018,
+      "rekor_log_index": 1398874573,
       "signing_profile": {
         "issuer": "https://token.actions.githubusercontent.com",
         "subject": "https://github.com/OpenScribbler/syllago-meta-registry/.github/workflows/moat-publisher.yml@refs/heads/master"
